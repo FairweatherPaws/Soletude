@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ParticleRotate : MonoBehaviour {
 
+	public int rotMulti;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,6 +12,6 @@ public class ParticleRotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(0, Time.deltaTime, 0);
+		transform.Rotate(0, rotMulti*Time.deltaTime, 0);
 	}
 }
