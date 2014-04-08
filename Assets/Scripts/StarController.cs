@@ -181,16 +181,31 @@ public class StarController : MonoBehaviour {
 					}
 					else
 					{
-						if (starNumber % 24 == 0) {
-							GameObject newStar;
+						if (element > 100) {
+							if (starNumber % 36 == 0) {
+								GameObject newStar;
 
-							if (starArray[starNumber,4] == 0) {newStar = Instantiate(blankGlowWhite, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-							if (starArray[starNumber,4] == 1) {newStar = Instantiate(blankGlowRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-							if (starArray[starNumber,4] == 2) {newStar = Instantiate(blankGlowBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-							if (starArray[starNumber,4] == 3) {newStar = Instantiate(blankGlowYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-							if (starArray[starNumber,4] == 4) {newStar = Instantiate(blankGlowDimRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-							if (starArray[starNumber,4] == 5) {newStar = Instantiate(blankGlowDimBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-							if (starArray[starNumber,4] == 6) {newStar = Instantiate(blankGlowDimYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 0) {newStar = Instantiate(blankGlowWhite, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 1) {newStar = Instantiate(blankGlowRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 2) {newStar = Instantiate(blankGlowBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 3) {newStar = Instantiate(blankGlowYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 4) {newStar = Instantiate(blankGlowDimRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 5) {newStar = Instantiate(blankGlowDimBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 6) {newStar = Instantiate(blankGlowDimYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							}
+						}
+						else {
+							if (starNumber % 12 == 0) {
+								GameObject newStar;
+								
+								if (starArray[starNumber,4] == 0) {newStar = Instantiate(blankGlowWhite, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 1) {newStar = Instantiate(blankGlowRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 2) {newStar = Instantiate(blankGlowBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 3) {newStar = Instantiate(blankGlowYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 4) {newStar = Instantiate(blankGlowDimRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 5) {newStar = Instantiate(blankGlowDimBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+								if (starArray[starNumber,4] == 6) {newStar = Instantiate(blankGlowDimYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							}
 						}
 					}
 
