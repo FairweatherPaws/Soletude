@@ -24,7 +24,8 @@ public class StarController : MonoBehaviour {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 7, 1, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	private int multiplier = 2;
-	public GameObject starPrefab, ship, blankGlowWhite, blankGlowRed, blankGlowBlue;
+	public GameObject starWhite, starRed, starBlue, starYellow, starDimWhite, starDimRed, starDimBlue, starDimYellow, ship; 
+	public GameObject blankGlowWhite, blankGlowRed, blankGlowBlue, blankGlowYellow, blankGlowDimWhite, blankGlowDimRed, blankGlowDimBlue, blankGlowDimYellow;
 	public int rightShift, downShift, starX, starY, starZ, sector, starNumber, xMin, xMax, yMin, yMax, zShift, spawnX, spawnY, spawnZ;
 	public int[,] starArray;
 
@@ -110,36 +111,52 @@ public class StarController : MonoBehaviour {
 //					if (sector >= 42 && sector < 49) {downShift = 2;}
 //					if (sector >= 49 && sector < 56) {downShift = 3;}
 //					if (sector >= 56 && sector < 63) {downShift = 4;}
+					float sectorCheck = Mathf.Sqrt ((rightShift*rightShift)+(downShift*downShift));
 					rightShift *= 128;
 					downShift *= 128;
 					starX += rightShift;
 					starY += downShift;
 					float testLength = (spawnX - starX)*(spawnX - starX)+(spawnY-starZ)*(spawnY-starZ)+(spawnZ-starY)*(spawnZ-starY);
 					testLength = Mathf.Sqrt(testLength);
-					int woob = Random.Range(0, 20);
-					if (woob < 4) {starArray[starNumber,4] = 0;} // white star
-					if (woob > 4) {starArray[starNumber,4] = 1;} // red star		
-					if (woob == 4) {starArray[starNumber,4] = 2;} // blue star
-					if (testLength < 700)
+					int woob = Random.Range(2, 20);
+					woob -= (int)sectorCheck;
+
+					if (woob > 6) {starArray[starNumber,4] = 0;} // white star
+					if (woob < 0) {starArray[starNumber,4] = 1;} // red star		
+					if (woob == 0) {starArray[starNumber,4] = 2;} // blue star
+					if (woob > 0 && woob < 7) {starArray[starNumber,4] = 3;} // yellow star
+
+					int dimmer = Random.Range (0, 3);
+					if (dimmer == 1) {starArray[starNumber,4] += 3;} // dims stars -- larger, less intense halo
+					if (testLength < 200)
 					{
 						GameObject newStar;
-						newStar = Instantiate(starPrefab, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;
-						StarScript Script1 = newStar.GetComponent<StarScript>();
-						Script1.starX = starX;
-						Script1.starY = starZ;
-						Script1.starZ = starY;
-						Script1.sector = sector;
-						if (starArray[starNumber,4] == 0) {newStar.renderer.material.color = new Color(1,1,1);}
-						if (starArray[starNumber,4] == 1) {newStar.renderer.material.color = new Color(1,0,0);}
-						if (starArray[starNumber,4] == 2) {newStar.renderer.material.color = new Color(0,0,1);}
+						if (starArray[starNumber,4] == 0) {newStar = Instantiate(starWhite, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						if (starArray[starNumber,4] == 1) {newStar = Instantiate(starRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						if (starArray[starNumber,4] == 2) {newStar = Instantiate(starBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						if (starArray[starNumber,4] == 3) {newStar = Instantiate(starYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						if (starArray[starNumber,4] == 4) {newStar = Instantiate(starDimRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						if (starArray[starNumber,4] == 5) {newStar = Instantiate(starDimBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						if (starArray[starNumber,4] == 6) {newStar = Instantiate(starDimYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						//						StarScript Script1 = newStar.GetComponent<StarScript>();
+//						Script1.starX = starX;
+//						Script1.starY = starZ;
+//						Script1.starZ = starY;
+//						Script1.sector = sector;
 					}
 					else
 					{
-						GameObject newStar;
+						if (starNumber % 3 == 0) {
+							GameObject newStar;
 
-						if (starArray[starNumber,4] == 0) {newStar = Instantiate(blankGlowWhite, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-						if (starArray[starNumber,4] == 1) {newStar = Instantiate(blankGlowRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
-						if (starArray[starNumber,4] == 2) {newStar = Instantiate(blankGlowBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							if (starArray[starNumber,4] == 0) {newStar = Instantiate(blankGlowWhite, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							if (starArray[starNumber,4] == 1) {newStar = Instantiate(blankGlowRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							if (starArray[starNumber,4] == 2) {newStar = Instantiate(blankGlowBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							if (starArray[starNumber,4] == 3) {newStar = Instantiate(blankGlowYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							if (starArray[starNumber,4] == 4) {newStar = Instantiate(blankGlowDimRed, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							if (starArray[starNumber,4] == 5) {newStar = Instantiate(blankGlowDimBlue, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+							if (starArray[starNumber,4] == 6) {newStar = Instantiate(blankGlowDimYellow, new Vector3(starX, starZ, starY), Quaternion.Euler(45, 45, 45)) as GameObject;}
+						}
 					}
 
 					// starnumber, starX, starY, starZ, starType
@@ -147,6 +164,7 @@ public class StarController : MonoBehaviour {
 					starArray[starNumber,1] = starX;
 					starArray[starNumber,2] = starZ;
 					starArray[starNumber,3] = starY;
+
 
 
 
