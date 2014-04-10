@@ -107,7 +107,7 @@ public class StarController : MonoBehaviour {
 		starArray = new int[1225825,29];
 
 		spawnX = Random.Range(15000, 15720);
-		spawnY = Random.Range(0, 1000);
+		spawnY = Random.Range(0, -1000);
 		spawnZ = Random.Range (15000, 15720);
 		GameObject playerShip;
 		playerShip = Instantiate(ship, new Vector3(spawnX, spawnY, spawnZ), Quaternion.identity) as GameObject;
@@ -115,9 +115,24 @@ public class StarController : MonoBehaviour {
 		foreach (int element in starSpread)
 		{
 			sector += 1;
+//			for (int j = 0; j < 33; j++)
+//			{
+//				if ((sector + j) % 32 == 0) {rightShift = j-16; break;}
+//			}
+//
+//			for (int j = 0; j < 33; j++)
+//			{
+//				if (sector - j * 32 <= 0) {downShift = j-16; break;}
+//			}
+//			GameObject woobwoob = null;
+//			rightShift *= 1280;
+//			downShift *= 1280;
+//			if (element > 0 ) {woobwoob = Instantiate (sparkler, new Vector3(rightShift, 4000, downShift-1280), Quaternion.identity) as GameObject;
+//				woobwoob.transform.localScale += new Vector3(5*element,20*element,5*element); }
 
 			if (element > 0)
 			{
+
 				int starCount = element * multiplier;
 				for (int i = 0; i < starCount; i++)
 				{
@@ -198,6 +213,8 @@ public class StarController : MonoBehaviour {
 					float sectorCheck = Mathf.Sqrt ((rightShift*rightShift)+(downShift*downShift));
 					rightShift *= 1280;
 					downShift *= 1280;
+
+
 					starX += rightShift;
 					starY += downShift;
 					float testLength = (spawnX - starX)*(spawnX - starX)+(spawnY-starZ)*(spawnY-starZ)+(spawnZ-starY)*(spawnZ-starY);
@@ -300,23 +317,23 @@ public class StarController : MonoBehaviour {
 					int artModif8 = 0;
 					int artModif9 = 0;
 
-					if (artOfInt > 25) {artOfInt1 = Random.Range(0,64); artModif1 = Random.Range(1,16);}
+					if (artOfInt > 25) {artOfInt1 = Random.Range(0,128); artModif1 = Random.Range(1,16);}
 					else {artOfInt1 = 0; artModif1 = 0;}
-					if (artOfInt > 43) {artOfInt2 = Random.Range(1,64); artModif2 = Random.Range(1,16);}
+					if (artOfInt > 43) {artOfInt2 = Random.Range(1,128); artModif2 = Random.Range(1,16);}
 					else {artOfInt2 = 0; artModif2 = 0;}
-					if (artOfInt > 50) {artOfInt3 = Random.Range(1,64); artModif3 = Random.Range(1,16);}
+					if (artOfInt > 50) {artOfInt3 = Random.Range(1,128); artModif3 = Random.Range(1,16);}
 					else {artOfInt3 = 0; artModif3 = 0;}
-					if (artOfInt > 57) {artOfInt4 = Random.Range(1,64); artModif4 = Random.Range(1,16);}
+					if (artOfInt > 57) {artOfInt4 = Random.Range(1,128); artModif4 = Random.Range(1,16);}
 					else {artOfInt4 = 0; artModif4 = 0;}
-					if (artOfInt > 64) {artOfInt5 = Random.Range(1,64); artModif5 = Random.Range(1,16);}
+					if (artOfInt > 64) {artOfInt5 = Random.Range(1,128); artModif5 = Random.Range(1,16);}
 					else {artOfInt5 = 0; artModif5 = 0;}
-					if (artOfInt > 71) {artOfInt6 = Random.Range(1,64); artModif6 = Random.Range(1,16);}
+					if (artOfInt > 71) {artOfInt6 = Random.Range(1,128); artModif6 = Random.Range(1,16);}
 					else {artOfInt6 = 0; artModif6 = 0;}
-					if (artOfInt > 80) {artOfInt7 = Random.Range(1,64); artModif7 = Random.Range(1,16);}
+					if (artOfInt > 80) {artOfInt7 = Random.Range(1,128); artModif7 = Random.Range(1,16);}
 					else {artOfInt7 = 0; artModif7 = 0;}
-					if (artOfInt > 88) {artOfInt8 = Random.Range(1,64); artModif8 = Random.Range(1,16);}
+					if (artOfInt > 88) {artOfInt8 = Random.Range(1,128); artModif8 = Random.Range(1,16);}
 					else {artOfInt8 = 0; artModif8 = 0;}
-					if (artOfInt > 95) {artOfInt9 = Random.Range(1,64); artModif9 = Random.Range(1,16);}
+					if (artOfInt > 95) {artOfInt9 = Random.Range(1,128); artModif9 = Random.Range(1,16);}
 					else {artOfInt9 = 0; artModif9 = 0;}
 					// starnumber, starX, starY, starZ, starType
 					starArray[starNumber,0] = starNumber;
@@ -362,7 +379,7 @@ public class StarController : MonoBehaviour {
 
 						StarScript Script1 = newStar.GetComponent<StarScript>();
 
-						for (int k = 0; k < 28; k++)
+						for (int k = 0; k < 29; k++)
 						{
 							Script1.starData[k] = starArray[starNumber, k];
 						}
@@ -376,7 +393,7 @@ public class StarController : MonoBehaviour {
 
 			}
 		}
-	
+
 	}
 	
 	// Update is called once per frame
