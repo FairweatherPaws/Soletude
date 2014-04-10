@@ -4,10 +4,11 @@ using System.Collections;
 public class StarScript : MonoBehaviour {
 
 	public int starX, starY, starZ, sector;
-
+	public int[] starData;
 
 	void Awake () {
 
+		starData = new int[29];
 
 	}
 
