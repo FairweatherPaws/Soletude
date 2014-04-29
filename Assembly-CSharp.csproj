@@ -46,12 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BulletFlight.cs" />
      <Compile Include="Assets\Scripts\ExploreSystem.cs" />
      <Compile Include="Assets\Scripts\GalaxyRotation.cs" />
      <Compile Include="Assets\Scripts\GridHighlight.cs" />
      <Compile Include="Assets\Scripts\GridIndicator.cs" />
      <Compile Include="Assets\Scripts\ParticleRotate.cs" />
+     <Compile Include="Assets\Scripts\RNGaiming.cs" />
+     <Compile Include="Assets\Scripts\RNGshooting.cs" />
      <Compile Include="Assets\Scripts\RotCam.cs" />
+     <Compile Include="Assets\Scripts\RunNGunControls.cs" />
      <Compile Include="Assets\Scripts\StarController.cs" />
      <Compile Include="Assets\Scripts\StarScript.cs" />
      <None Include="Assets\Shaders\AlphaSelfIllum2.shader" />
