@@ -15,6 +15,7 @@ public class RNGshooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (Input.GetMouseButton(0)) 
 		{
 			startValue -= Time.deltaTime;
@@ -35,7 +36,7 @@ public class RNGshooting : MonoBehaviour {
 
 
 
-				startValue = 0.25f;
+				startValue = 1f;
 			}
 		}
 	

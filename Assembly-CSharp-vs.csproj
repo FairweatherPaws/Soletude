@@ -52,12 +52,14 @@
      <Compile Include="Assets\Scripts\GridHighlight.cs" />
      <Compile Include="Assets\Scripts\GridIndicator.cs" />
      <Compile Include="Assets\Scripts\ParticleRotate.cs" />
+     <Compile Include="Assets\Scripts\RNGCamera.cs" />
      <Compile Include="Assets\Scripts\RNGaiming.cs" />
      <Compile Include="Assets\Scripts\RNGshooting.cs" />
      <Compile Include="Assets\Scripts\RotCam.cs" />
      <Compile Include="Assets\Scripts\RunNGunControls.cs" />
      <Compile Include="Assets\Scripts\StarController.cs" />
      <Compile Include="Assets\Scripts\StarScript.cs" />
+     <Compile Include="Assets\Scripts\indicatorLightMotion.cs" />
      <None Include="Assets\Shaders\AlphaSelfIllum2.shader" />
      <None Include="Assets\Shaders\AlphaSelfIllum.shader" />
   </ItemGroup>

@@ -9,7 +9,7 @@ public class BulletFlight : MonoBehaviour {
 
 	void Awake () {
 
-		this.rigidbody.AddForce(-transform.forward * 3000);
+		this.rigidbody.AddForce(-transform.forward * 10000);
 
 	}
 

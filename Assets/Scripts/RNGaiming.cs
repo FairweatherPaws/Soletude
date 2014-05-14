@@ -5,6 +5,7 @@ public class RNGaiming : MonoBehaviour {
 
 	public Camera mainCamera;
 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -12,6 +13,7 @@ public class RNGaiming : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 
 		Vector3 mousePos = Input.mousePosition;
 		mousePos.z = 0f;
